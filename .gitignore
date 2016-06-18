@@ -1,13 +1,6 @@
-# Build Folder
-**/build/**
-
-# Database Folder
-**/db/**
-
 # Logs
 logs
 *.log
-npm-debug.log*
 
 # Runtime data
 pids
@@ -30,10 +23,17 @@ coverage
 build/Release
 
 # Dependency directory
-**/node_modules/**
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
 
-# Optional npm cache directory
-.npm
+#dist folder
+dist
 
-# Optional REPL history
-.node_repl_history
+#Webstorm metadata
+.idea
+
+#VSCode metadata
+.vscode
+
+# Mac files
+.DS_Store
