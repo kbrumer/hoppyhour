@@ -9,7 +9,7 @@ class Repos extends Component {
       repositories: []
     };
   }
-  
+
   componentDidMount(){
     fetch('https://api.github.com/users/pro-react/repos')
     .then((response) => {
@@ -23,6 +23,7 @@ class Repos extends Component {
       this.setState({repositories:responseData});
     })
     .catch((error) => {
+      console.log('error', error);
       this.props.history.pushState(null,'/error');
     });
   }
