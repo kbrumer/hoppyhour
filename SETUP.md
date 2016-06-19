@@ -6,6 +6,85 @@
 * select Spatial Extensions -> PostGIS
 * see [source](http://www.bostongis.com/?content_name=postgis_tut01) for more details
 
+```
+
+
+psql -U postgres < create.sql;
+
+CREATE DATABASE hoppy_hour_db
+  WITH OWNER = postgres
+     TEMPLATE template0
+     ENCODING = 'UTF8'
+     LC_COLLATE = 'en_US.UTF-8'
+     LC_CTYPE = 'en_US.UTF-8'
+     TABLESPACE = pg_default
+     CONNECTION LIMIT = -1;
+
+pql -U postgres hoppy_hour_db < extensions.sql;     
+
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+CREATE EXTENSION fuzzystrmatch;
+CREATE EXTENSION postgis_tiger_geocoder;
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "tablefunc";
+
+DROP CAST IF EXISTS (VARCHAR AS JSON);
+CREATE CAST (VARCHAR AS JSON) WITHOUT FUNCTION AS IMPLICIT;
+
+CREATE TABLE t_bar (
+    uuid               UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    name               VARCHAR(255),
+    address            VARCHAR(512),
+    latitude           DECIMAL(9,6),
+    longitude          DECIMAL(9,6),
+    hoppy_level        INT
+);
+```
+
+
+
+
+```
+SELECT * FROM t_bar
+  WHERE ST_DWithin(
+    Geography(ST_MakePoint(longitude, latitude)),
+    Geography(ST_MakePoint(-122.678204, 45.522536)),
+    318
+  );
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 To test:
 
 ```
