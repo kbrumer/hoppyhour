@@ -1,0 +1,3 @@
+INSERT INTO t_bar (uuid, name, address, latitude, longitude, hoppy_level) VALUES ('c4255dca-c44d-4f55-8a1f-170fe83ba377', 'Kelly''s Olympian', '426 SW Washington St, Portland, OR 97204', 45.519935, -122.676546, 2);
+INSERT INTO t_bar (uuid, name, address, latitude, longitude, hoppy_level) VALUES ('94571db8-ec9d-4194-a8f0-5132489886f0', 'Horse Brass Pub', '4534 SE Belmont St, Portland, OR 97215', 45.516411, -122.615661, 8);
+INSERT INTO t_bar (uuid, name, address, latitude, longitude, hoppy_level) VALUES ('f23fe345-5204-43d0-a528-aa8678bfad92', 'Bailey''s Taproom', '213 SW Broadway, Portland, OR 97205', 45.522536, -122.678204, 9);

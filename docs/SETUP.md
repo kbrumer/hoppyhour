@@ -6,8 +6,13 @@
 * select Spatial Extensions -> PostGIS
 * see [source](http://www.bostongis.com/?content_name=postgis_tut01) for more details
 
-```
 
+
+export DATABASE_URL= 'postgres://postgres:$PASSWORD@localhost:5432/hoppy_hour_db';
+var connectionString = process.env.DATABASE_URL;
+
+
+```
 
 psql -U postgres < create.sql;
 
@@ -20,12 +25,28 @@ CREATE DATABASE hoppy_hour_db
      TABLESPACE = pg_default
      CONNECTION LIMIT = -1;
 
+
+CREATE USER hoppy WITH PASSWORD 'hops4ever';
+GRANT ALL PRIVILEGES ON DATABASE hoppy_hour_db TO hoppy;
+ALTER USER hoppy WITH SUPERUSER;
+
+GRANT USAGE ON SCHEMA pg_toast TO hoppy;
+GRANT USAGE ON SCHEMA pg_temp_1 TO hoppy;
+GRANT USAGE ON SCHEMA pg_toast_temp_1 TO hoppy;
+GRANT USAGE ON SCHEMA pg_catalog TO hoppy;
+GRANT USAGE ON SCHEMA public TO hoppy;
+GRANT USAGE ON SCHEMA information_schema TO hoppy;
+GRANT USAGE ON SCHEMA topology TO hoppy;
+GRANT USAGE ON SCHEMA tiger TO hoppy;
+GRANT USAGE ON SCHEMA tiger_data TO hoppy;
+
+
 pql -U postgres hoppy_hour_db < extensions.sql;     
 
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 CREATE EXTENSION fuzzystrmatch;
-CREATE EXTENSION postgis_tiger_geocoder;
+// CREATE EXTENSION postgis_tiger_geocoder;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "tablefunc";
