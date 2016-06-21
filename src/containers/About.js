@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class About extends Component {
   render() {
     return (
-      <div>
+      <section>
         <h1> About </h1>
         <h2> We believe hoppiness = happiness. </h2>
         <h2> We believe drinks are better with friends. </h2>
@@ -16,7 +16,7 @@ class About extends Component {
                 <li>Sarah Joy: Grasshopper</li>
             </ul>
         </div>
-      </div>
+      </section>
     );
   }
 }

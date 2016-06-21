@@ -4,10 +4,10 @@ class Venues extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h1>All Venues</h1>
         <p> Update a venues hoppiness here. </p>
-      </div>
+      </section>
     );
   }
 }

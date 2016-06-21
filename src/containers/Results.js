@@ -4,10 +4,10 @@ class Results extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h1>Search Results</h1>
         <p> Cheers! </p>
-      </div>
+      </section>
     );
   }
 }

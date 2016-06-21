@@ -4,10 +4,10 @@ class Invites extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h1>Invite your friends</h1>
         <p> maybe. </p>
-      </div>
+      </section>
     );
   }
 }

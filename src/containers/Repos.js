@@ -38,13 +38,13 @@ class Repos extends Component {
     );
 
     return (
-      <div>
+      <section>
         <h1>Github Repos</h1>
         <ul>
           {repos}
         </ul>
         {child}
-      </div>
+      </section>
     );
   }
 }
