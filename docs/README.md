@@ -22,3 +22,5 @@ heroku open
 
 
 https://hoppy-hour.herokuapp.com/
+
+Enjoy!
