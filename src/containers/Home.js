@@ -7,12 +7,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h1>Hoppy Hour</h1>
         <input type="text" placeholder="Type your starting address"/>
         <input type="text" placeholder="Radius" />
         <button type="submit" onClick={this.onClick.bind(this)}>Search</button>
-      </div>
+      </section>
     );
   }
 }
