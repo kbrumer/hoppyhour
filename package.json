@@ -11,8 +11,7 @@
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run clean-dist && npm run lint",
-    "copy:index": "cpy 'src/*.html' dist",
-    "build": "babel-node tools/build.js && npm run copy:index"
+    "build": "babel-node tools/build.js && cpy 'src/*.html' dist"
   },
   "author": "Ken Brumer, Cesar Jiminez, Sarah Joy Calpo",
   "license": "MIT",
@@ -43,6 +42,7 @@
     "babel-register": "6.8.0",
     "browser-sync": "2.12.5",
     "chai": "3.5.0",
+    "connect-browser-sync": "2.0.1",
     "connect-history-api-fallback": "1.2.0",
     "coveralls": "2.11.9",
     "cpy": "4.0.1",

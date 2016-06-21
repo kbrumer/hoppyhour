@@ -1,9 +1,8 @@
 var express = require('express'),
   pg = require('pg')
   port = process.env.PORT || 4000,
-  app = express();
-
-var connurl = process.env.DATABASE_URL || 'postgres://hoppy:hops4ever@localhost:5432/hoppy_hour_db';
+  app = express(),
+  connurl = process.env.DATABASE_URL || 'postgres://hoppy:hops4ever@localhost:5432/hoppy_hour_db';
 
 var sql = 'SELECT * '+
           '  FROM t_bar ' +

@@ -4,5 +4,4 @@ export default {
   FETCH: 'fetch',
   SAVE: 'save',
   PUT: 'put'
-
 };

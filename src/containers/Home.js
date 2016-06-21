@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
+  onClick(){
+    console.log("button was clicked!");
+  }
+
   render() {
     return (
-      <h1>HOME</h1>
+      <div>
+        <h1>HOME</h1>
+        <input type="text" placeholder="Type your starting address"/>
+        <input type="text" placeholder="Radius" />
+        <button type="submit" onClick={this.onClick.bind(this)}>Search</button>
+      </div>
     );
   }
 }
