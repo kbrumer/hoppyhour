@@ -13,7 +13,7 @@ var sql = 'SELECT * '+
           '       );';
 
 
-app.get('/db', function (request, response) {
+app.get('/db/:lat/:lon/:radius', function (request, response) {
   pg.connect(connurl, function(err, client, done) {
     client.query(sql, function(err, result) {
       done();
