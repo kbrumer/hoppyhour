@@ -4,17 +4,22 @@ var express = require('express'),
   app = express(),
   connurl = process.env.DATABASE_URL || 'postgres://hoppy:hops4ever@localhost:5432/hoppy_hour_db';
 
-var sql = 'SELECT * '+
-          '  FROM t_bar ' +
-          ' WHERE ST_DWithin( ' +
-          '         Geography(ST_MakePoint(longitude, latitude)), ' +
-          '         Geography(ST_MakePoint(-122.678204, 45.522536)), ' +
-          '         318 ' +
-          '       );';
+// radius is in meters
+function sqlDist(lon, lat, radius){
+  return 'SELECT * '+
+        '  FROM t_bar_yelp ' +
+        ' WHERE ST_DWithin( ' +
+        '         Geography(ST_MakePoint(longitude, latitude)), ' +
+        '         Geography(ST_MakePoint(' + lon + ', ' + lat + ')), ' +
+        '          ' + radius +
+        '       );';
 
+}
 
-app.get('/db', function (request, response) {
+app.get('/db/:lon/:lat/:radius', function (request, response) {
   pg.connect(connurl, function(err, client, done) {
+    var sql = sqlDist(request.params.lon, request.params.lat, request.params.radius);
+    console.log('running query with sql', sql);
     client.query(sql, function(err, result) {
       done();
       if (err) {
