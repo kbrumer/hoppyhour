@@ -18,7 +18,10 @@ npm start -s
 
 ```
 npm run build
-
 -- on the server
 node server.js
 ```
+
+https://hoppy-hour.herokuapp.com/
+
+Enjoy!
