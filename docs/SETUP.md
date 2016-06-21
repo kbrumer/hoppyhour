@@ -32,6 +32,12 @@ heroku addons:create heroku-postgresql:hobby-dev
 heroku open
 ```
 
+# Heroku Postgres
+
+```
+heroku pg:psql < data/create.sql
+heroku pg:psql < data/yelpData.sql
+```
 
 https://hoppy-hour.herokuapp.com/
 
