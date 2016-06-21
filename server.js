@@ -11,14 +11,14 @@ function sqlDist(lon, lat, radius){
         ' WHERE ST_DWithin( ' +
         '         Geography(ST_MakePoint(longitude, latitude)), ' +
         '         Geography(ST_MakePoint(' + lon + ', ' + lat + ')), ' +
-        '          ' + radius
+        '          ' + radius +
         '       );';
 
 }
 
 app.get('/db/:lon/:lat/:radius', function (request, response) {
   pg.connect(connurl, function(err, client, done) {
-    var sql = sqlDist(lon, lat, radius);
+    var sql = sqlDist(request.params.lon, request.params.lat, request.params.radius);
     console.log('running query with sql', sql);
     client.query(sql, function(err, result) {
       done();
