@@ -31,3 +31,8 @@ Enjoy!
 http://localhost:4000/db/-122.678204/45.522536/320
 
 https://hoppy-hour.herokuapp.com/db/-122.678204/45.522536/320
+
+
+# ESLint
+
+npm install --save-dev eslint eslint-plugin-react

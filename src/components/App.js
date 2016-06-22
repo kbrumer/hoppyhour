@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { PropTypes, Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 
@@ -6,7 +8,6 @@ class App extends Component {
       return (
         <div>
           {this.props.children}
-
           {/*  TODO close menu on selection */}
           <label htmlFor="navToggle">HH</label>
           <input id="navToggle" type="checkbox"></input>

@@ -2,6 +2,7 @@ var express = require('express'),
   pg = require('pg')
   port = process.env.PORT || 4000,
   app = express(),
+  cors = require('cors'),
   connurl = process.env.DATABASE_URL || 'postgres://hoppy:hops4ever@localhost:5432/hoppy_hour_db';
 
 // radius is in meters
@@ -15,6 +16,8 @@ function sqlDist(lon, lat, radius){
         '       );';
 
 }
+
+app.use(cors());
 
 app.get('/db/:lon/:lat/:radius', function (request, response) {
   pg.connect(connurl, function(err, client, done) {
