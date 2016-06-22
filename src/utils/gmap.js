@@ -1,3 +1,6 @@
+/*eslint no-unused-vars: "warn"*/
+/*global google*/
+
 'use strict';
 
 import { GOOGLE_API_URL, GOOGLE_API_KEY } from '../config';
