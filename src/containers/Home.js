@@ -44,6 +44,11 @@ class Home extends Component {
 
   render() {
 
+    const formStyle = {
+        padding: '5%',
+        marginTop: '20px'
+    };
+
     let barHtml = this.props.bars.map((bar) => {
       return (
         <li key={bar.id}>{bar.name}</li>
@@ -51,19 +56,20 @@ class Home extends Component {
     });
 
     return (
-      <div>
-        <section className="search">
-          <h1>Hoppy Hour</h1>
-          <div className="form">
-          <input type="text" ref="address" placeholder="Type your starting address"/>
-          <input type="text" ref="radius" placeholder="Radius" />
-          <button onClick={this.handleSearch.bind(this)}>Search</button>
-          </div>
+      <section className="search">
+      <h1>Hoppy Hour</h1>
+        <section className="form" style={formStyle}>
+            <input type="text" ref="address" placeholder="Type your starting address"/>
+            <input type="text" ref="radius" placeholder="Radius" />
+            <button className="btn" onClick={this.handleSearch.bind(this)}>Search</button>
+        </section>
+        <section>
+        {/* map goes here*/}
         </section>
         <section>
           {barHtml}
         </section>
-      </div>
+      </section>
     );
   }
 }

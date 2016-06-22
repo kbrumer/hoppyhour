@@ -59,6 +59,7 @@ td {
         letter-spacing: 2px;
     }
 
+/* TODO use sass function? */
 .search {
     h1 {
         background-color: $green-color;
@@ -96,14 +97,9 @@ td {
 }
 
 
-// @media only screen and ( max-width: 800px ) {
-
 @media only screen and ( min-width: 1085px ) {
-    #nav {
-        background-color: blue;
+    /* to style for desktop:
+        - results on search page
 
-        li {
-            display: inline-block;
-        }
-    }
+    */
 }

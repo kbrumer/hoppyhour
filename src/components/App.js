@@ -10,9 +10,9 @@ class App extends Component {
       };
       const navStyle = {
          height: 0,
-         transition: 'all 1s',
+         transition: 'all .5s',
          position: 'fixed',
-         bottom: '0',
+         bottom: 0,
          width: '100%',
          listStyle: 'none',
          padding: '10px 0'
@@ -27,8 +27,8 @@ class App extends Component {
       };
       const labelStyle = {
         position: "fixed",
-        bottom: "0",
-        left: "0",
+        bottom: 0,
+        left: 0,
         zIndex: "1",
         fontWeight: "bold",
         fontSize: "1.5em",
