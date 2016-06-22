@@ -13,7 +13,7 @@ const actions = [hoppyActions];
 const mapStateToProps = (state)  => {
   console.log('Home::mapStateToProps', state);
   return {
-    ...state
+    bars: state.hoppyReducer.bars
   };
 };
 
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(creators, dispatch),
     // dispatch: dispatch,
-    onSearch: (address, radius) => dispatch(hoppyActions.search(address, radius))
+    onSearch: (address, radius) => hoppyActions.search(address, radius)(dispatch)
   };
 };
 
@@ -43,19 +43,31 @@ class Home extends Component {
   }
 
   render() {
+    let barHtml = this.props.bars.map((bar) => {
+      return (
+        <li key={bar.id}>{bar.name}</li>
+      );
+    });
+
     return (
-      <section>
-        <h1>Hoppy Hour</h1>
-        <input type="text" ref="address" placeholder="Type your starting address"/>
-        <input type="text" ref="radius" placeholder="Radius" />
-        <button onClick={this.handleSearch.bind(this)}>Search</button>
-      </section>
+      <div>
+        <section>
+          <h1>Hoppy Hour</h1>
+          <input type="text" ref="address" placeholder="Type your starting address"/>
+          <input type="text" ref="radius" placeholder="Radius" />
+          <button onClick={this.handleSearch.bind(this)}>Search</button>
+        </section>
+        <section>
+          {barHtml}
+        </section>
+    </div>
     );
   }
 }
 
 Home.propType = {
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  bars: PropTypes.object
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

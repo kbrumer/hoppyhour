@@ -1,6 +1,7 @@
 /* These are just example constants  */
 
 export default {
+  SEARCH_INIT: 'search_init',
   SEARCH_FORM: 'search_form',
   SEARCH_URL: 'search_url',
   SEARCH_SUCCESS: 'search_sucess',
