@@ -6,7 +6,7 @@ class Invites extends Component {
 
   render() {
     return (
-      <section>
+      <section className="invite">
         <h1>Invite your friends</h1>
         <p> maybe. </p>
       </section>

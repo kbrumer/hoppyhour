@@ -6,7 +6,7 @@ class Venues extends Component {
 
   render() {
     return (
-      <section>
+      <section className="venue">
         <h1>All Venues</h1>
         <p> Update a venues hoppiness here. </p>
       </section>

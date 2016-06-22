@@ -5,11 +5,13 @@ import React, { Component } from 'react';
 class About extends Component {
   render() {
     return (
-      <section>
+      <section className="about">
         <h1> About </h1>
-        <h2> We believe hoppiness = happiness. </h2>
-        <h2> We believe drinks are better with friends. </h2>
-        <h2> We believe every venue is a potential home. </h2>
+        <div className="top">
+            <h2> We believe hoppiness = happiness. </h2>
+            <h2> We believe drinks are better with friends. </h2>
+            <h2> We believe every venue is a potential home. </h2>
+        </div>
         <div>
             <ul>
                 <lh>We are:</lh>

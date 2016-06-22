@@ -28,71 +28,73 @@ td {
 	padding: 12px;
 }
 
-h2 {
-	color: $orange-color;
-}
+#app section {
+    padding-bottom: 50px; // to account for nav
 
-// start new styles
-
-#app {
-    section {
-        padding-bottom: 50px; // to account for nav
+    h1 {
+        margin: 0;
+        padding-top: 5%;
+        padding-left: 6px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-bottom: $black-color solid 7px;
+        transition: all 1s;
     }
-}
-
-label[for=navToggle] {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: $red-color;
-    width: 100%;
-    text-align: center;
-    background-color: $black-color;
 }
 
 #navToggle {
     visibility: hidden;
 
     &:checked ~ #nav {
-        height: 100%;
+        height: 100% !important;
     }
 }
 
 
-#nav {
-    height: 0;
-    transition: height 1s;
-
-    position: fixed;
-    bottom: 0;
-    background: $red-color;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-    padding: 10px 0;
-
-    li {
-        border-bottom: 1px dotted $black-color;
-        height: 15%;
-        display: flex;
-        box-sizing: border-box;
-        justify-content: center;
-        align-items: center;
-
-        a {
-            text-decoration: none;
-            color: $black-color;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+#nav a {
+        text-decoration: none;
+        color: $black-color;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
     }
 
+.search {
+    h1 {
+        background-color: $green-color;
+        box-shadow: 0 15px 0 $green-color;
+    }
+    ~ label[for=navToggle] { color: $yellow-color; }
+    ~ #nav { background: $yellow-color; }
 }
+
+.invite {
+    h1 {
+        background-color: $yellow-color;
+        box-shadow: 0 15px 0 $yellow-color;
+    }
+    ~ label[for=navToggle] { color: $orange-color; }
+    ~ #nav { background: $orange-color; }
+}
+
+.venue {
+    h1 {
+        background-color: $orange-color;
+        box-shadow: 0 15px 0 $orange-color;
+    }
+    ~ label[for=navToggle] { color: $red-color; }
+    ~ #nav { background: $red-color; }
+}
+
+.about {
+    h1 {
+        background-color: $red-color;
+        box-shadow: 0 15px 0 $red-color;
+    }
+    ~ label[for=navToggle] { color: $green-color; }
+    ~ #nav { background: $green-color; }
+}
+
 
 // @media only screen and ( max-width: 800px ) {
 

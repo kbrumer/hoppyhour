@@ -5,19 +5,52 @@ import { Link, IndexLink } from 'react-router';
 
 class App extends Component {
   render() {
+      const appStyle = {
+         height: "100%"
+      };
+      const navStyle = {
+         height: 0,
+         transition: 'all 1s',
+         position: 'fixed',
+         bottom: '0',
+         width: '100%',
+         listStyle: 'none',
+         padding: '10px 0'
+      };
+      const liStyle = {
+          borderBottom: '1px dotted #0D0106',
+          height: '20%',
+          display: 'flex',
+          boxSizing: 'border-box',
+          justifyContent: 'center',
+          alignItems: 'center'
+      };
+      const labelStyle = {
+        position: "fixed",
+        bottom: "0",
+        left: "0",
+        zIndex: "1",
+        fontWeight: "bold",
+        fontSize: "1.5em",
+        width: "100%",
+        backgroundColor: "#0D0106",
+        cursor: "pointer"
+      };
+
       return (
-        <div>
+        <div style={appStyle}>
           {this.props.children}
-          {/*  TODO close menu on selection */}
-          <label htmlFor="navToggle">HH</label>
+
+          <label htmlFor="navToggle" className="txt--center" style={labelStyle}>HH</label>
           <input id="navToggle" type="checkbox"></input>
-          <ul id="nav">
-              <li><IndexLink to="/">Search</IndexLink></li>
-              <li><Link to="/results">Results</Link></li>
-              <li><Link to="/invite">Invite</Link></li>
-              <li><Link to="/venues">Venues</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/repos">Repos</Link></li>
+          <ul id="nav" style={navStyle} className="m0">
+              <IndexLink to="/"><li style={liStyle}>Search</li></IndexLink>
+               {/*<li><Link to="/results">Results</Link></li>*/}
+              <Link to="/invite"><li style={liStyle}>Invite</li></Link>
+              <Link to="/venues"><li style={liStyle}>Venues</li></Link>
+              <Link to="/about"><li style={liStyle}>About</li></Link>
+              <li> [kangaroo icon here] </li>
+              {/* <li><Link to="/repos">Repos</Link></li>*/}
               <br/>
           </ul>
 

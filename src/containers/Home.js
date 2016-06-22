@@ -43,12 +43,15 @@ class Home extends Component {
   }
 
   render() {
+
     return (
-      <section>
+      <section className="search">
         <h1>Hoppy Hour</h1>
-        <input type="text" ref="address" placeholder="Type your starting address"/>
-        <input type="text" ref="radius" placeholder="Radius" />
-        <button onClick={this.handleSearch.bind(this)}>Search</button>
+        <div className="form">
+            <input type="text" ref="address" placeholder="Type your starting address"/>
+            <input type="text" ref="radius" placeholder="Radius" />
+            <button onClick={this.handleSearch.bind(this)}>Search</button>
+        </div>
       </section>
     );
   }
@@ -56,6 +59,6 @@ class Home extends Component {
 
 Home.propType = {
   onSearch: PropTypes.func
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
