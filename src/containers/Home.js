@@ -50,6 +50,13 @@ class Home extends Component {
         marginTop: '20px'
     };
 
+    const mapStyle = {
+        position: "absolute",
+        overflow: "hidden",
+        height: "50%",
+        width: "100%"
+    }
+
     let barHtml = this.props.bars.map((bar) => {
       return (
         <li key={bar.id}>{bar.name}</li>
@@ -65,10 +72,7 @@ class Home extends Component {
             <button className="btn" onClick={this.handleSearch.bind(this)}>Search</button>
         </section>
         <section>
-        {/* map goes here*/}
-        </section>
-        <section>
-          <div id="map"></div>
+          <div style={mapStyle} id="map"></div>
         </section>
         <section>
           <ul>
