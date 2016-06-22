@@ -3,6 +3,10 @@
 import CONST from '../constants';
 import * as config from '../config';
 
+export function resolveAddress(address, callback) {
+
+}
+
 export function search(address, radius){
   console.log('hoppyActions::search called', arguments);
 

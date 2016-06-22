@@ -58,7 +58,12 @@ class Home extends Component {
           <button onClick={this.handleSearch.bind(this)}>Search</button>
         </section>
         <section>
-          {barHtml}
+          <div id="map"></div>
+        </section>
+        <section>
+          <ul>
+            {barHtml}
+          </ul>
         </section>
     </div>
     );

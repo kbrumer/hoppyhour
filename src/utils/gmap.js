@@ -1,30 +1,66 @@
-// function getData(){
-//
-// }
-//
-// function getGmapsData(address) {
-//
-//   var url      = 'https://maps.googleapis.com/maps/api/geocode/json?',
-//     location = address.replace(' ', '+'),
-//     api_key  = 'AIzaSyBBssCWGkwPkCHNjgZE-8CVp0RLOsOE-4g';
-//
-//
-//   $.ajax(url + 'address=' + location + '&key=' + api_key)
-//     .then(function (data) {
-//       return data.results.map(function(address) {
-//         return {
-//           formatted_address: address.formatted_address,
-//           lat: address.geometry.location.lat,
-//           lng: address.geometry.location.lng
-//         }
-//       });
-//     })
-//     .then(getData)
-//     .then(function(data) {
-//       console.log("Here it is", data);
-//
-//     })
-// }
+'use strict';
+
+import { GOOGLE_API_URL, GOOGLE_API_KEY } from '../config';
+
+export function resolveLocation(address, callback) {
+
+  const location = address.replace(' ', '+');
+  const url = `${GOOGLE_API_URL}address=${location}&key=${GOOGLE_API_KEY}`;
+
+  $.ajax(url)
+    .then(function (data) {
+      return data.results.map(function(address) {
+        callback(address.geometry.location.lat, address.geometry.location.lng);
+      });
+    });
+}
 
 
-// getGmapsData("2260 NE Davis St. Portland OR 97232");
+
+
+export function createMap(location) {
+
+  // Example of Data
+  // var locations = [
+  //   ['Bondi Beach', -33.890542, 151.274856, 4],
+  //   ['Coogee Beach', -33.923036, 151.259052, 5],
+  //   ['Cronulla Beach', -34.028249, 151.157507, 3],
+  //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+  //   ['Maroubra Beach', -33.950198, 151.259302, 1]
+  // ];
+
+  var locations = location;
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: new google.maps.LatLng(45.5231, -122.6765),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(locations[i][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+  }
+}
+
+
+function parseData(data) {
+  var locations = data.results.map(function(bar) {
+    return [bar.name, bar.latitude, bar.longitude];
+  });
+
+  createMap(locations);
+}
