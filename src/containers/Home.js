@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(creators, dispatch),
     // dispatch: dispatch,
-    onSearch: (address, radius) => hoppyActions.search(address, radius)(dispatch)
+    onSearch: (address, radius) => hoppyActions.search(address, radius, dispatch)
   };
 };
 
@@ -38,8 +38,9 @@ class Home extends Component {
     const radius = this.refs.radius.value;
 
     this.props.onSearch(address, radius);
-    this.refs.address.value = '';
-    this.refs.radius.value = '';
+    // @TODO - kbrumer - make these sticky for testing
+    //this.refs.address.value = '';
+    //this.refs.radius.value = '';
   }
 
   render() {

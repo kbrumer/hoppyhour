@@ -2,17 +2,15 @@
 
 import { GOOGLE_API_URL, GOOGLE_API_KEY } from '../config';
 
-export function resolveLocation(address, callback) {
-
+export function resolveLocation(address) {
   const location = address.replace(' ', '+');
   const url = `${GOOGLE_API_URL}address=${location}&key=${GOOGLE_API_KEY}`;
-
-  $.ajax(url)
-    .then(function (data) {
-      return data.results.map(function(address) {
-        callback(address.geometry.location.lat, address.geometry.location.lng);
-      });
-    });
+  return $.ajax(url);
+    // .then(function (data) {
+    //   return data.results.map(function(address) {
+    //     [ address.geometry.location.lat, address.geometry.location.lng ];
+    //   });
+    // });
 }
 
 
