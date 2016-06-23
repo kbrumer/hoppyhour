@@ -3,6 +3,9 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 import KangarooIcon from './icons/KangarooIcon';
+// import FrogIcon from './icons/FrogIcon';
+// import GrasshopperIcon from './icons/GrasshopperIcon';
+// import RabbitIcon from './icons/RabbitIcon';
 
 class Navigation extends Component {
   render() {
