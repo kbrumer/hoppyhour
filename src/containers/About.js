@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import KangarooIcon from '../components/icons/KangarooIcon';
+import GrasshopperIcon from '../components/icons/GrasshopperIcon';
 
 class About extends Component {
   render() {
@@ -14,10 +16,19 @@ class About extends Component {
         </div>
         <div>
             <ul>
-                <lh>We are:</lh>
-                <li>Ken: Kangaroo</li>
-                <li>Cesar: Kangaroo</li>
-                <li>Sarah Joy: Grasshopper</li>
+                <lh>Made w/ &hearts; @ Code Fellows, Portland </lh>
+                <li>
+                    Ken
+                    <KangarooIcon/>
+                </li>
+                <li>
+                    Cesar
+                    <KangarooIcon/>
+                </li>
+                <li>
+                    Sarah Joy
+                    <GrasshopperIcon/>
+                </li>
             </ul>
         </div>
       </section>
