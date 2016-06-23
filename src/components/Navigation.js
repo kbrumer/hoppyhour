@@ -8,6 +8,12 @@ import KangarooIcon from './icons/KangarooIcon';
 // import RabbitIcon from './icons/RabbitIcon';
 
 class Navigation extends Component {
+  onclick() {
+      setTimeout( () => {
+          this.refs.navToggle.checked = false;
+      }, 700);
+  }
+
   render() {
       const navStyle = {
          height: 0,
@@ -41,13 +47,13 @@ class Navigation extends Component {
       return (
         <div>
           <label htmlFor="navToggle" className="txt--center" style={labelStyle}>HH</label>
-          <input id="navToggle" type="checkbox"></input>
+          <input ref="navToggle" id="navToggle" type="checkbox"></input>
           <ul id="nav" style={navStyle} className="m0">
-              <IndexLink to="/"><li style={liStyle}>Search</li></IndexLink>
+              <IndexLink onClick={this.onclick.bind(this)} to="/"><li style={liStyle}>Search</li></IndexLink>
                {/*<li><Link to="/results">Results</Link></li>*/}
-              <Link to="/invite"><li style={liStyle}>Invite</li></Link>
-              <Link to="/venues"><li style={liStyle}>Venues</li></Link>
-              <Link to="/about"><li style={liStyle}>About</li></Link>
+              <Link onClick={this.onclick.bind(this)} to="/invite"><li style={liStyle}>Invite</li></Link>
+              <Link onClick={this.onclick.bind(this)} to="/venues"><li style={liStyle}>Venues</li></Link>
+              <Link onClick={this.onclick.bind(this)} to="/about"><li style={liStyle}>About</li></Link>
               <li className="txt--center">
                 <KangarooIcon/>
               </li>
