@@ -22,7 +22,7 @@ app.use(cors());
 app.get('/db/:lon/:lat/:radius', function (request, response) {
   pg.connect(connurl, function(err, client, done) {
     var sql = sqlDist(request.params.lon, request.params.lat, request.params.radius);
-    console.log('running query with sql', sql);
+    // console.log('running query with sql', sql);
     client.query(sql, function(err, result) {
       done();
       if (err) {

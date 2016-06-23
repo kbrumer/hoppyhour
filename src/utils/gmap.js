@@ -6,9 +6,9 @@
 import { GOOGLE_API_URL, GOOGLE_API_KEY } from '../config';
 
 // const flagIcon = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-const redIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-// const greenIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
-const blueIcon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+const redIcon = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png';
+// const greenIcon = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
+const blueIcon = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
 
 export function resolveLocation(address) {
   const url = `${GOOGLE_API_URL}address=${address.replace(' ', '+')}&key=${GOOGLE_API_KEY}`;
@@ -25,7 +25,7 @@ export function createMap(geom, json) {
 
   const infowindow = new google.maps.InfoWindow();
 
-  addToMap(map, infowindow, bounds, geom[0].lat, geom[0].lon, 'Home', blueIcon);
+  addToMap(map, infowindow, bounds, geom[0].lat, geom[0].lon, 'Starting address', blueIcon);
 
   json.results.map(function(bar){
     const info = `${bar.name}<br>${bar.address}<br>${bar.city}, ${bar.state}<br>Phone: ${bar.phone}<br>Rating: ${bar.rating}`;
