@@ -26,8 +26,8 @@ class Home extends Component {
     const radius = this.refs.radius.value;
 
     this.props.onSearch(address, radius);
-    this.refs.address.value = '';
-    this.refs.radius.value = '';
+    // this.refs.address.value = '';
+    // this.refs.radius.value = '';
   }
 
   render() {
@@ -54,8 +54,8 @@ class Home extends Component {
       <section className="search">
       <h1>Hoppy Hour</h1>
         <section className="form" style={formStyle}>
-            <input type="text" ref="address" placeholder="Type your starting address"/>
-            <input type="text" ref="radius" placeholder="Radius (in meters)" />
+            <input type="text" ref="address" defaultValue="510 SW 2nd Ave Portland OR" placeholder="Type your starting address"/>
+            <input type="text" ref="radius" defaultValue="300" placeholder="Radius (in meters)" />
             <button className="btn" onClick={this.handleSearch.bind(this)}>Search</button>
         </section>
         <section>
