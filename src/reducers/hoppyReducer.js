@@ -1,14 +1,11 @@
 'use strict';
 
-// import objectAssign from 'object-assign';
-
 import { List } from 'immutable';
 import InitialState from '../state/hoppyState';
 import CONST from '../constants';
 
-
 export default function reduce(state = InitialState, action) {
-  console.log('hoppyReducer::reduce called', state, action);
+  // console.log('hoppyReducer::reduce called', state, action);
   switch (action.type) {
     case CONST.FETCH:
       return state;

@@ -2,10 +2,10 @@
 
 import CONST from '../constants';
 import * as config from '../config';
-import { resolveLocation } from '../utils/gmap';
+import { resolveLocation, createMap } from '../utils/gmap';
 
 export function search(address, radius, dispatch){
-  console.log('hoppyActions::search called', arguments);
+  // console.log('hoppyActions::search called', arguments);
   resolveLocation(address).then((data) => {
     const geom =  data.results.map(function(address) {
       return {lon: address.geometry.location.lng, lat: address.geometry.location.lat};
@@ -18,7 +18,13 @@ export function search(address, radius, dispatch){
     return fetch(url)
       .then(req => req.json())
       .then(json => {
+        // console.log('hoppyActions::search json', json);
+        dropPins(geom, json);
         dispatch({ type: CONST.SEARCH_SUCCESS, json });
       });
   });
+}
+
+export function dropPins(geom, json){
+  createMap(geom, json);
 }
