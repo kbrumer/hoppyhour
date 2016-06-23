@@ -42,19 +42,10 @@ td {
     }
 }
 
-
-// label[for=navToggle] {
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     z-index: 1;
-//     font-weight: bold;
-//     font-size: 1.5em;
-//     color: $red-color;
-//     width: 100%;
-//     text-align: center;
-//     background-color: $black-color;
-// }
+svg {
+    height: 100px;
+    width: 100px;
+}
 
 #navToggle {
     visibility: hidden;
@@ -79,8 +70,8 @@ td {
         background-color: $green-color;
         box-shadow: 0 15px 0 $green-color;
     }
-    ~ label[for=navToggle] { color: $yellow-color; }
-    ~ #nav { background: $yellow-color; }
+    ~ div label[for=navToggle] { color: $yellow-color; }
+    ~ div #nav { background: $yellow-color; }
 }
 
 .invite {
@@ -88,8 +79,8 @@ td {
         background-color: $yellow-color;
         box-shadow: 0 15px 0 $yellow-color;
     }
-    ~ label[for=navToggle] { color: $orange-color; }
-    ~ #nav { background: $orange-color; }
+    ~ div label[for=navToggle] { color: $orange-color; }
+    ~ div #nav { background: $orange-color; }
 }
 
 .venue {
@@ -97,8 +88,8 @@ td {
         background-color: $orange-color;
         box-shadow: 0 15px 0 $orange-color;
     }
-    ~ label[for=navToggle] { color: $red-color; }
-    ~ #nav { background: $red-color; }
+    ~ div label[for=navToggle] { color: $red-color; }
+    ~ div #nav { background: $red-color; }
 }
 
 .about {
@@ -106,8 +97,8 @@ td {
         background-color: $red-color;
         box-shadow: 0 15px 0 $red-color;
     }
-    ~ label[for=navToggle] { color: $green-color; }
-    ~ #nav { background: $green-color; }
+    ~ div label[for=navToggle] { color: $green-color; }
+    ~ div #nav { background: $green-color; }
 }
 
 
