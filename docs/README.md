@@ -38,3 +38,8 @@ https://hoppy-hour.herokuapp.com/db/-122.678204/45.522536/320
 npm install --save-dev eslint eslint-plugin-react
 
 <!-- 45.533028, -122.603015 -->
+
+
+In IntelliJ: 
+Preferences -> Languages & Framework -> JavaScript:
+  JavaScript language version: JSX Harmony
